@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "140417636377",
+    "firebase_url": "https://mobilelab1-3bc49-default-rtdb.firebaseio.com",
+    "project_id": "mobilelab1-3bc49",
+    "storage_bucket": "mobilelab1-3bc49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140417636377:android:8aec0054e8d7f9e0833288",
+        "android_client_info": {
+          "package_name": "com.weixiao.myapplicationtest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApLTWe2uRcHEw0ElH4y88vaHyQE956Q9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
