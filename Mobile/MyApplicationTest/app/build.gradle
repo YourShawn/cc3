@@ -1,8 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
-
+apply plugin: 'com.android.application'
 android {
     namespace 'com.weixiao.myapplicationtest'
     compileSdk 33
@@ -48,6 +49,8 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.firebaseui:firebase-ui-database:8.0.0'
+    implementation 'com.google.firebase:firebase-core:9.6.1'
 
 }
+apply plugin: 'com.google.gms.google-services'
 
