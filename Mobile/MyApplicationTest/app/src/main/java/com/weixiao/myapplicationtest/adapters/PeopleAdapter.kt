@@ -21,10 +21,6 @@ import com.weixiao.week1class.entity.People
 class PeopleAdapter(private val option: FirebaseRecyclerOptions<People>) :
     FirebaseRecyclerAdapter<People, PeopleAdapter.PeopleViewHolder>(option) {
 
-    //TODO I can run the code when I comment the peopleList. It is not working if I comment out the people list.
-    // I try to resolute that, but I didn't find the way to fix it.
-    // So now, I just can display the first element of firebase people list data.
-
 // declare a list for storing the data list.
     private val peopleList:MutableList<People> = mutableListOf();
     init {
@@ -43,8 +39,6 @@ class PeopleAdapter(private val option: FirebaseRecyclerOptions<People>) :
      * Using this method to bind data via calling the method of PeopleViewHolder.
      */
     override fun onBindViewHolder(holder: PeopleViewHolder, position: Int, model: People) {
-        println("----------"+model.toString());
-//        val peopleModel = getItem(position);
         holder.bind(model);
     }
 
