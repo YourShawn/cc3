@@ -16,19 +16,16 @@ import com.weixiao.week1class.entity.People
  * People adapter
  */
 
-class PeopleAdapter(option: FirebaseRecyclerOptions<People>) :
+class PeopleAdapter(private var option: FirebaseRecyclerOptions<People>) :
     FirebaseRecyclerAdapter<People, PeopleAdapter.PeopleViewHolder>(option) {
 
-    //TODO I can run the code when I comment the peopleList. It is not working if I comment out the people list.
-    // I try to resolute that, but I didn't find the way to fix it.
-    // So now, I just can display the first element of firebase people list data.
-
 // declare a list for storing the data list.
-//    private val peopleList:MutableList<People> = mutableListOf();
-//    init {
-//        //Init the data list
-//        peopleList.addAll(option.snapshots);
-//    }
+    private val peopleList:MutableList<People> = mutableListOf();
+    init {
+        println("-------- init ------"+option);
+        //Init the data list
+        peopleList.addAll(option.snapshots);
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PeopleViewHolder {
         val view =
@@ -41,8 +38,6 @@ class PeopleAdapter(option: FirebaseRecyclerOptions<People>) :
      * Using this method to bind data via calling the method of PeopleViewHolder.
      */
     override fun onBindViewHolder(holder: PeopleViewHolder, position: Int, model: People) {
-        println("----------"+model.toString());
-//        val peopleModel = getItem(position);
         holder.bind(model);
     }
 
@@ -60,8 +55,8 @@ class PeopleAdapter(option: FirebaseRecyclerOptions<People>) :
         }
     }
 
-//    override fun getItemCount(): Int {
-//        return peopleList.size;
-//    }
+    override fun getItemCount(): Int {
+        return option.snapshots.size;
+    }
 
 }

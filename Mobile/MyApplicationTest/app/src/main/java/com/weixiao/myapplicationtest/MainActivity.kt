@@ -22,8 +22,10 @@ class MainActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this);
         //Get instance and its child
         val query = FirebaseDatabase.getInstance().reference.child("people");
+        println("------query --------- "+query);
         //Get the Firebase recycle option instance
         val option = FirebaseRecyclerOptions.Builder<People>().setQuery(query,People::class.java).build();
+        println("------option ------------"+option.getSnapshots());
         //Pass the Firebase recycle option instance to PeopleAdaptor constructor than get the instance of adapter.
         adapter = PeopleAdapter(option);
 
