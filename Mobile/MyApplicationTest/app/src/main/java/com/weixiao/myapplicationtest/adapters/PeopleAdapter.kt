@@ -3,8 +3,10 @@ package com.weixiao.myapplicationtest.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.weixiao.myapplicationtest.R
@@ -55,13 +57,13 @@ class PeopleAdapter(private val option: FirebaseRecyclerOptions<People>) :
         fun bind(model: People) {
             val textNameView = itemView.findViewById<TextView>(R.id.textName);
             val textRoleView = itemView.findViewById<TextView>(R.id.textRole);
-//            val imagePhoto = itemView.findViewById<ImageView>(R.id.imgPhoto);
+            val imagePhoto = itemView.findViewById<ImageView>(R.id.imgPhoto);
             textNameView.text = model.name;
             textRoleView.text = model.role;
             //Load image into imagePhoto
-//            Glide.with(itemView.context)
-//                .load(model.photo)
-//                .into(imagePhoto)
+            Glide.with(itemView.context)
+                .load(model.photo)
+                .into(imagePhoto)
         }
     }
 
