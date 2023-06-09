@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.firebase.storage.FirebaseStorage
 import com.weixiao.myapplicationtest.R
 import com.weixiao.week1class.entity.People
 
@@ -54,10 +55,18 @@ class PeopleAdapter(private val option: FirebaseRecyclerOptions<People>) :
             val imagePhoto = itemView.findViewById<ImageView>(R.id.imgPhoto);
             textNameView.text = model.name;
             textRoleView.text = model.role;
-            //Load image into imagePhoto
-            Glide.with(itemView.context)
-                .load(model.photo)
-                .into(imagePhoto)
+            // Get Firebase Storage instance
+            val storage = FirebaseStorage.getInstance()
+            // get the refrence of picture from Storage
+            val storageRef = storage.reference.child(model.photo)
+            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                val imageURL = uri.toString()
+                //Load image into imagePhoto
+                Glide.with(itemView.context)
+                    .load(imageURL)
+                    .into(imagePhoto)
+            }
+
         }
     }
 
