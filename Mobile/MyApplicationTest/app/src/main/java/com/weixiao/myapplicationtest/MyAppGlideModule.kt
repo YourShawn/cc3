@@ -10,6 +10,9 @@ import com.google.firebase.storage.StorageReference
 import java.io.InputStream
 
 
+/**
+ * Utilizing glide to render picture
+ */
 @GlideModule
 class MyAppGlideModule : AppGlideModule() {
     override fun registerComponents(

@@ -4,6 +4,9 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
+/*
+Setting the margin of ever one element of recycleView
+ */
 class RecycleViewItemDecoration: RecyclerView.ItemDecoration {
 private var space: Int = 0;
 
